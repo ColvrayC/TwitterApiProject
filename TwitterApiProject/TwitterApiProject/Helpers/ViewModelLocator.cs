@@ -30,11 +30,27 @@ namespace TwitterApiProject.Helpers
             }
         }
 
-        public MainViewModel Login
+        public LoginViewModel Login
         {
             get
             {
                 return ServiceLocator.Current.GetInstance<LoginViewModel>();
+            }
+        }
+
+        public TimeLineViewModel TimeLine
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<TimeLineViewModel>();
+            }
+        }
+
+        public TweetViewModel Tweet
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<TweetViewModel>();
             }
         }
     }

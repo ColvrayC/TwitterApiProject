@@ -8,5 +8,9 @@ namespace TwitterApiProject.ViewModels.DataLogin
 {
     public partial class LoginViewModel
     {
+        public void ValidateProperty(string propertyName, ref string error)
+        {
+            error = "dsfsfssdffsd";
+        }
     }
 }

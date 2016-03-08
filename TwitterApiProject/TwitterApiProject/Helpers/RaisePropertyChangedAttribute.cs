@@ -1,7 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 
 using System;
-using Microsoft.Practices.Unity;
+
 using System.Reflection;
 using System.ComponentModel;
 

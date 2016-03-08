@@ -3,7 +3,7 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "MvvmLight": "5.2.0",
     "MvvmLightLibs": "5.2.0",
-    "Unity": "4.0.1"
+    "TweetinviAPI": "0.9.11"
   },
   "frameworks": {
     "uap10.0": {}

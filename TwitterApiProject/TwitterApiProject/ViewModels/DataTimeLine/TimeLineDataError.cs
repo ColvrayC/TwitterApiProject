@@ -8,5 +8,9 @@ namespace TwitterApiProject.ViewModels.DataTimeLine
 {
     public partial class TimeLineViewModel
     {
+        public void ValidateProperty(string propertyName, ref string error)
+        {
+            error = "dsfsfssdffsd";
+        }
     }
 }

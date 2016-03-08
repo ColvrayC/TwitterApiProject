@@ -107,6 +107,9 @@
     <Compile Include="ViewModels\DataTimeLine\TimeLineViewModel.cs" />
     <Compile Include="ViewModels\DataTweet\TweetDataError.cs" />
     <Compile Include="ViewModels\DataTweet\TweetViewModel.cs" />
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
