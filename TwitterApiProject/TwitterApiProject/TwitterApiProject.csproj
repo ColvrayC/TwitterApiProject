@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\FrameConverter.cs" />
+    <Compile Include="Converters\InstanceEqualsConverter.cs" />
     <Compile Include="Helpers\RaisePropertyChangedAttribute.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
