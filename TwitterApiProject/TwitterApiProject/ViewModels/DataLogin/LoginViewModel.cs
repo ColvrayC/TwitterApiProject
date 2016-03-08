@@ -5,11 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tweetinvi;
+using Tweetinvi.Core.Credentials;
 
 namespace TwitterApiProject.ViewModels.DataLogin
 {
     public partial class LoginViewModel : ViewModelBase
     {
+        const string ConsumerKey = "uHSdbffaBJocliB3MIXqa2dow";
+        const string ConsumerSecretKey = "w2EwjSVEyuFR2nQ72nJTk7C0gzFhretgkbjUZEKAe7GTkOJubi";
 
         //ConnectionProvider cnn = new ConnectionProvider();
         /// <summary>
@@ -28,7 +32,21 @@ namespace TwitterApiProject.ViewModels.DataLogin
         /// </summary>
         public LoginViewModel()
         {
-            //OpenFlyOutCommand = new RelayCommand<string>(ShowFlyOut);
+            // Create a new set of credentials for the application
+            var appCredentials = new TwitterCredentials(ConsumerKey, ConsumerSecretKey);
+
+            // Go to the URL so that Twitter authenticates the user and gives him a PIN code
+            var url = CredentialsCreator.GetAuthorizationURL(appCredentials);
+
+
+            // Ask the user to enter the pin code given by Twitter
+            var pinCode = "2251421";
+
+            // With this pin code it is now possible to get the credentials back from Twitter
+            var userCredentials = CredentialsCreator.GetCredentialsFromVerifierCode(pinCode, appCredentials);
+
+            // Use the user credentials in your application
+            Auth.SetCredentials(userCredentials);
         }
         /// <summary>
         /// PROPERTY
@@ -69,6 +87,7 @@ namespace TwitterApiProject.ViewModels.DataLogin
         }
         protected virtual void ValidatePropertyInternal(string propertyName, ref string error)
         {
+            
             this.ValidateProperty(propertyName, ref error);
         }
 

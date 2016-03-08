@@ -1,4 +1,4 @@
-﻿<Window
+﻿<Page
     x:Class="TwitterApiProject.Views.MainView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -10,4 +10,4 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     </Grid>
-</Window>
+</Page>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TwitterApiProject.Views;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -72,7 +73,7 @@ namespace TwitterApiProject
                 // Quand la pile de navigation n'est pas restaurée, accédez à la première page,
                 // puis configurez la nouvelle page en transmettant les informations requises en tant que
                 // paramètre
-                rootFrame.Navigate(typeof(MainView), e.Arguments);
+                rootFrame.Navigate(typeof(LoginView), e.Arguments);
             }
             // Vérifiez que la fenêtre actuelle est active
             Window.Current.Activate();
