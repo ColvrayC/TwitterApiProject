@@ -32,22 +32,21 @@ namespace TwitterApiProject.ViewModels.DataLogin
         /// </summary>
         public LoginViewModel()
         {
-            // Create a new set of credentials for the application
             var appCredentials = new TwitterCredentials(ConsumerKey, ConsumerSecretKey);
-
-            // Go to the URL so that Twitter authenticates the user and gives him a PIN code
             var url = CredentialsCreator.GetAuthorizationURL(appCredentials);
 
+            //NAVIGATE TO LOGINWEB WITH URL
 
-            // Ask the user to enter the pin code given by Twitter
+            // zone de saisie
             var pinCode = "2251421";
 
-            // With this pin code it is now possible to get the credentials back from Twitter
             var userCredentials = CredentialsCreator.GetCredentialsFromVerifierCode(pinCode, appCredentials);
 
             // Use the user credentials in your application
             Auth.SetCredentials(userCredentials);
         }
+
+
         /// <summary>
         /// PROPERTY
         /// </summary>

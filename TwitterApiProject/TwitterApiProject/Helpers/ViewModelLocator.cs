@@ -17,6 +17,7 @@ namespace TwitterApiProject.Helpers
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginViewModel>();
+            SimpleIoc.Default.Register<LoginWebViewModel>();
             SimpleIoc.Default.Register<TimeLineViewModel>();
             SimpleIoc.Default.Register<TweetViewModel>();
 
@@ -35,6 +36,13 @@ namespace TwitterApiProject.Helpers
             get
             {
                 return ServiceLocator.Current.GetInstance<LoginViewModel>();
+            }
+        }
+        public LoginWebViewModel LoginWeb
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LoginWebViewModel>();
             }
         }
 
