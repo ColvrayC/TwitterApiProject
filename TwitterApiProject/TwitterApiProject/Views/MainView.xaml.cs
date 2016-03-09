@@ -22,9 +22,44 @@ namespace TwitterApiProject.Views
     /// </summary>
     public sealed partial class MainView : Page
     {
-        public MainView()
+        public MainView(Frame frame)
         {
             this.InitializeComponent();
+            this.ShellSplitView.Content = frame;
+        }
+
+        private void OnMenuButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ShellSplitView.IsPaneOpen = !ShellSplitView.IsPaneOpen;
+            ((RadioButton)sender).IsChecked = false;
+        }
+
+        private void OnHomeButtonChecked(object sender, RoutedEventArgs e)
+        {
+            ShellSplitView.IsPaneOpen = false;
+            if (ShellSplitView.Content != null)
+                ((Frame)ShellSplitView.Content).Navigate(typeof(LoginView));
+        }
+
+        private void OnSearchButtonChecked(object sender, RoutedEventArgs e)
+        {
+            ShellSplitView.IsPaneOpen = false;
+            if (ShellSplitView.Content != null)
+                ((Frame)ShellSplitView.Content).Navigate(typeof(TimeLineView));
+        }
+
+        private void OnSettingsButtonChecked(object sender, RoutedEventArgs e)
+        {
+            ShellSplitView.IsPaneOpen = false;
+            if (ShellSplitView.Content != null)
+                ((Frame)ShellSplitView.Content).Navigate(typeof(TweetView));
+        }
+
+        private void OnAboutButtonChecked(object sender, RoutedEventArgs e)
+        {
+            ShellSplitView.IsPaneOpen = false;
+            if (ShellSplitView.Content != null)
+                ((Frame)ShellSplitView.Content).Navigate(typeof(TweetView));
         }
     }
 }

@@ -96,7 +96,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\FrameConverter.cs" />
-    <Compile Include="Converters\InstanceEqualsConverter.cs" />
     <Compile Include="Helpers\RaisePropertyChangedAttribute.cs" />
     <Compile Include="Helpers\ViewModelLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,6 +136,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Assets\Style\SplitViewStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

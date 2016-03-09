@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tweetinvi;
 using Tweetinvi.Core.Credentials;
+using TwitterApiProject.Helpers;
 
 namespace TwitterApiProject.ViewModels.DataLogin
 {
@@ -20,11 +22,7 @@ namespace TwitterApiProject.ViewModels.DataLogin
         ///COMMAND
         /// </summary>
         /// 
-        public RelayCommand CreateCustomerCommand { get; set; }
-        public RelayCommand<string> OpenFlyOutCommand { get; set; }
-
-        public RelayCommand<string> EditModeCommand { get; set; }
-
+       
 
         // ConnectionProvider Cnn = new ConnectionProvider() ;
         /// <summary>

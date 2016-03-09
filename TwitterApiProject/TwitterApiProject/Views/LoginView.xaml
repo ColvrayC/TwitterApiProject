@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Frame
     x:Class="TwitterApiProject.LoginView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -10,6 +10,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Text="LOGIN" FontSize="60"/>
-        <Button Content="Se connecter à Twitter" Command="{Binding Path=CurrentView, Converter={StaticResource FrameConverter}}" CommandParameter="LoginView.xaml"/>
+   
     </Grid>
-</Page>
+</Frame>

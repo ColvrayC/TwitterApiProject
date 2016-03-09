@@ -9,6 +9,8 @@ using Tweetinvi.Core.Credentials;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Views;
+using TwitterApiProject.Helpers;
 
 namespace TwitterApiProject.ViewModels.DataMain
 {
@@ -19,7 +21,8 @@ namespace TwitterApiProject.ViewModels.DataMain
         ///COMMAND
         /// </summary>
         /// 
-      
+
+
 
 
         // ConnectionProvider Cnn = new ConnectionProvider() ;
@@ -28,21 +31,19 @@ namespace TwitterApiProject.ViewModels.DataMain
         /// </summary>
         public MainViewModel()
         {
-            CurrentView = "LoginView.xaml";
-
+            //CurrentView = "LoginView.xaml";
         }
         /// <summary>
         /// PROPERTY
         /// </summary>
         /// 
-        private string _CurrentView;
+        /*private string _CurrentView;
         public string CurrentView
         {
             get { return _CurrentView; }
             set { _CurrentView = value; RaisePropertyChanged("CurrentView"); }
-        }
-
-
+        }*/
+        
         //public virtual string PathCurrentFrame { get; set; }
 
 
@@ -51,7 +52,9 @@ namespace TwitterApiProject.ViewModels.DataMain
         /// <summary>
         /// METHODES
         /// </summary>
-        /// 
+  
+
+
 
         /// <summary>
         /// ERROR 

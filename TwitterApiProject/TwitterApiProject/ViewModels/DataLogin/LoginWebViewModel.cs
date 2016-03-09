@@ -8,5 +8,9 @@ namespace TwitterApiProject.ViewModels.DataLogin
 {
     public class LoginWebViewModel
     {
+        static LoginWebViewModel()
+        {
+
+        }
     }
 }

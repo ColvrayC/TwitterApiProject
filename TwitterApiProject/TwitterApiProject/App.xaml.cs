@@ -8,6 +8,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,6 +24,7 @@ namespace TwitterApiProject
     /// </summary>
     sealed partial class App : Application
     {
+        private Frame _rootFrame;
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé
         /// à être exécutée. Elle correspond donc à l'équivalent logique de main() ou WinMain().
@@ -40,53 +42,61 @@ namespace TwitterApiProject
         /// <param name="e">Détails concernant la requête et le processus de lancement.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-
-#if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
+            // Do not repeat app initialization when the Window already has content,
+            // just ensure that the window is active
+            if (Window.Current.Content == null)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
-            }
-#endif
-
-            Frame rootFrame = Window.Current.Content as Frame;
-
-            // Ne répétez pas l'initialisation de l'application lorsque la fenêtre comporte déjà du contenu,
-            // assurez-vous juste que la fenêtre est active
-            if (rootFrame == null)
-            {
-                // Créez un Frame utilisable comme contexte de navigation et naviguez jusqu'à la première page
-                rootFrame = new Frame();
-
-                rootFrame.NavigationFailed += OnNavigationFailed;
+                // Create a Frame to act as the navigation context and navigate to the first page
+                _rootFrame = new Frame();
+                _rootFrame.NavigationFailed += OnNavigationFailed;
+                _rootFrame.Navigated += OnNavigated;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: chargez l'état de l'application précédemment suspendue
+                    //TODO: Load state from previously suspended application
                 }
 
-                // Placez le frame dans la fenêtre active
-                Window.Current.Content = rootFrame;
+                // Place the frame in the current Window
+                Window.Current.Content = new MainView(_rootFrame);
+
+                // Register a handler for BackRequested events and set the
+                // visibility of the Back button
+                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    _rootFrame.CanGoBack ?
+                    AppViewBackButtonVisibility.Visible :
+                    AppViewBackButtonVisibility.Collapsed;
             }
 
-            if (rootFrame.Content == null)
+            if (_rootFrame.Content == null)
             {
-                // Quand la pile de navigation n'est pas restaurée, accédez à la première page,
-                // puis configurez la nouvelle page en transmettant les informations requises en tant que
-                // paramètre
-                rootFrame.Navigate(typeof(MainView), e.Arguments);
+                // When the navigation stack isn't restored navigate to the first page,
+                // configuring the new page by passing required information as a navigation
+                // parameter
+                _rootFrame.Navigate(typeof(MainView), e.Arguments);
             }
-            // Vérifiez que la fenêtre actuelle est active
+            // Ensure the current window is active
             Window.Current.Activate();
         }
 
         /// <summary>
-        /// Appelé lorsque la navigation vers une page donnée échoue
+        /// Invoked when Navigation to a certain page fails
         /// </summary>
-        /// <param name="sender">Frame à l'origine de l'échec de navigation.</param>
-        /// <param name="e">Détails relatifs à l'échec de navigation</param>
+        /// <param name="sender">The Frame which failed navigation</param>
+        /// <param name="e">Details about the navigation failure</param>
         void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            // Each time a navigation event occurs, update the Back button's visibility
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                ((Frame)sender).CanGoBack ?
+                AppViewBackButtonVisibility.Visible :
+                AppViewBackButtonVisibility.Collapsed;
         }
 
         /// <summary>
@@ -101,6 +111,15 @@ namespace TwitterApiProject
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: enregistrez l'état de l'application et arrêtez toute activité en arrière-plan
             deferral.Complete();
+        }
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (_rootFrame != null && _rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                _rootFrame.GoBack();
+            }
         }
     }
 }

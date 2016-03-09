@@ -7,13 +7,18 @@ using TwitterApiProject.ViewModels.DataLogin;
 using TwitterApiProject.ViewModels.DataMain;
 using TwitterApiProject.ViewModels.DataTimeLine;
 using TwitterApiProject.ViewModels.DataTweet;
+using TwitterApiProject.Views;
 
 namespace TwitterApiProject.Helpers
 {
     public class ViewModelLocator
     {
+        public const string LoginWebPageKey = "LoginWebView";
+
         static ViewModelLocator()
         {
+
+
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginViewModel>();
@@ -61,5 +66,7 @@ namespace TwitterApiProject.Helpers
                 return ServiceLocator.Current.GetInstance<TweetViewModel>();
             }
         }
+
+        
     }
 }
