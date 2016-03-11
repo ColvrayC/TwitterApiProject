@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
+using TwitterProjectClient.Helpers;
+using Tweetinvi.Core.Credentials;
+using Tweetinvi;
 
 namespace TwitterProjectClient.ViewModels
 {
@@ -11,15 +14,37 @@ namespace TwitterProjectClient.ViewModels
     {
         public MainPageViewModel()
         {
-            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
-            {
-                Value = "Designtime value";
-            }
+            // Create a new set of credentials for the application
+            var appCredentials = new TwitterCredentials(Consumer.Key, Consumer.Secret);
+
+            // Go to the URL so that Twitter authenticates the user and gives him a PIN code
+            UrlAuth = CredentialsCreator.GetAuthorizationURL(appCredentials);
+
+
+            // UrlAuth  With this pin code it is now possible to get the credentials back from Twitter
+            /* var userCredentials = CredentialsCreator.GetCredentialsFromVerifierCode(pinCode, appCredentials);
+
+             // Use the user credentials in your application
+             Auth.SetCredentials(userCredentials);*/
+
         }
+
+        //URL d'autorisation
+        string _UrlAuth;
+        public string UrlAuth { get { return _UrlAuth; } set { Set(ref _UrlAuth, value); } }
+
 
         string _Value = "Gas";
         public string Value { get { return _Value; } set { Set(ref _Value, value); } }
 
+
+        /// <summary>
+        /// NAVIGATION
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <param name="mode"></param>
+        /// <param name="suspensionState"></param>
+        /// <returns></returns>
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             if (suspensionState.Any())
@@ -43,6 +68,9 @@ namespace TwitterProjectClient.ViewModels
             args.Cancel = false;
             await Task.CompletedTask;
         }
+
+        public void GotoLoginWebPage() =>
+            NavigationService.Navigate(typeof(Views.MainPage), Value);
 
         public void GotoDetailsPage() =>
             NavigationService.Navigate(typeof(Views.DetailPage), Value);
