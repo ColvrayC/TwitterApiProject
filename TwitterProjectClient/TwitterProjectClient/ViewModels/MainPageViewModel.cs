@@ -92,7 +92,7 @@ namespace TwitterProjectClient.ViewModels
         }
 
         public void GoToTimeLinePage() =>
-            NavigationService.Navigate(typeof(Views.TimeLinePage), Value);
+            NavigationService.Navigate(typeof(Views.TimeLinePage), 0);
 
         public void GotoDetailsPage() =>
             NavigationService.Navigate(typeof(Views.DetailPage), Value);
