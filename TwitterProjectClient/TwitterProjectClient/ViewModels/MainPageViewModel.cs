@@ -8,10 +8,13 @@ using TwitterProjectClient.Helpers;
 using Tweetinvi.Core.Credentials;
 using Tweetinvi;
 
+
 namespace TwitterProjectClient.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+
+        
         public MainPageViewModel()
         {
             // Create a new set of credentials for the application
@@ -20,7 +23,7 @@ namespace TwitterProjectClient.ViewModels
             // Go to the URL so that Twitter authenticates the user and gives him a PIN code
             UrlAuth = CredentialsCreator.GetAuthorizationURL(appCredentials);
 
-
+            
             // UrlAuth  With this pin code it is now possible to get the credentials back from Twitter
             /* var userCredentials = CredentialsCreator.GetCredentialsFromVerifierCode(pinCode, appCredentials);
 
