@@ -7,18 +7,22 @@ using Windows.UI.Xaml.Navigation;
 using TwitterProjectClient.Helpers;
 using Tweetinvi.Core.Credentials;
 using Tweetinvi;
-
+using GalaSoft.MvvmLight.Command;
+using Tweetinvi.Core.Parameters;
 
 namespace TwitterProjectClient.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+        TwitterCredentials appCredentials;
+        public RelayCommand SendPinCodeCommand { get; set; }
 
-        
+
         public MainPageViewModel()
         {
+            SendPinCodeCommand = new RelayCommand(SendPinCode);
             // Create a new set of credentials for the application
-            var appCredentials = new TwitterCredentials(Consumer.Key, Consumer.Secret);
+            appCredentials = new TwitterCredentials(Consumer.Key, Consumer.Secret);
 
             // Go to the URL so that Twitter authenticates the user and gives him a PIN code
             UrlAuth = CredentialsCreator.GetAuthorizationURL(appCredentials);
@@ -31,6 +35,21 @@ namespace TwitterProjectClient.ViewModels
              Auth.SetCredentials(userCredentials);*/
 
         }
+
+        public void SendPinCode()
+        {
+            var userCredentials = CredentialsCreator.GetCredentialsFromVerifierCode(_PinCode, appCredentials);
+            Auth.SetCredentials(userCredentials);
+            if(Auth.Credentials != null) //Si erreur sa renvoie null
+            {
+                GoToTimeLinePage();
+               
+            }
+        }
+
+        //URL d'autorisation
+        string _PinCode;
+        public string PinCode { get { return _PinCode; } set { Set(ref _PinCode, value); } }
 
         //URL d'autorisation
         string _UrlAuth;
@@ -72,8 +91,8 @@ namespace TwitterProjectClient.ViewModels
             await Task.CompletedTask;
         }
 
-        public void GotoLoginWebPage() =>
-            NavigationService.Navigate(typeof(Views.MainPage), Value);
+        public void GoToTimeLinePage() =>
+            NavigationService.Navigate(typeof(Views.TimeLinePage), Value);
 
         public void GotoDetailsPage() =>
             NavigationService.Navigate(typeof(Views.DetailPage), Value);
