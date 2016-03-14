@@ -16,7 +16,7 @@ namespace TwitterProjectClient
         {
             InitializeComponent();
             SplashFactory = (e) => new Views.Splash(e);
-
+            
             #region App settings
 
             var _settings = SettingsService.Instance;

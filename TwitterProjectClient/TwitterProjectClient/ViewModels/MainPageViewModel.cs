@@ -20,6 +20,7 @@ namespace TwitterProjectClient.ViewModels
 
         public MainPageViewModel()
         {
+           
             SendPinCodeCommand = new RelayCommand(SendPinCode);
             // Create a new set of credentials for the application
             appCredentials = new TwitterCredentials(Consumer.Key, Consumer.Secret);
@@ -36,13 +37,13 @@ namespace TwitterProjectClient.ViewModels
 
         }
 
-        public void SendPinCode()
+        public  void SendPinCode()
         {
             var userCredentials = CredentialsCreator.GetCredentialsFromVerifierCode(_PinCode, appCredentials);
             Auth.SetCredentials(userCredentials);
             if(Auth.Credentials != null) //Si erreur sa renvoie null
             {
-                GoToTimeLinePage();
+                 GoToTimeLinePage();
                
             }
         }
@@ -92,9 +93,9 @@ namespace TwitterProjectClient.ViewModels
         }
 
         public void GoToTimeLinePage() =>
-            NavigationService.Navigate(typeof(Views.TimeLinePage), 0);
+            NavigationService.Navigate(typeof(Views.TimeLinePage),Value);
 
-        public void GotoDetailsPage() =>
+       public void GotoDetailsPage() =>
             NavigationService.Navigate(typeof(Views.DetailPage), Value);
 
         public void GotoSettings() =>
