@@ -25,6 +25,7 @@ namespace TwitterProjectClient.Views
         public AddTweetPage()
         {
             this.InitializeComponent();
+            NavigationCacheMode = NavigationCacheMode.Disabled;
         }
     }
 }
