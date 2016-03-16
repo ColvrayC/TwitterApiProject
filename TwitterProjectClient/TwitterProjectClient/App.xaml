@@ -4,7 +4,16 @@
                      xmlns:common="using:Template10.Common">
 
     <Application.Resources>
-        <ResourceDictionary Source="Styles\Custom.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles\Custom.xaml" />
+                <ResourceDictionary Source="Styles\RetweetButton.xaml" />
+                <ResourceDictionary Source="Styles\ReplyButton.xaml" />
+                <ResourceDictionary Source="Styles\LikeButton.xaml" />
+                <ResourceDictionary Source="Styles\ThreePointsButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Application.Resources>
    
 </common:BootStrapper>

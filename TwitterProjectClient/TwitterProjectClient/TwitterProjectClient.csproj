@@ -97,6 +97,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\ReplyVisibilityConverter.cs" />
     <Compile Include="Helpers\Consumer.cs" />
     <Compile Include="Models\TimeLineModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,6 +143,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Help.htm" />
+    <Content Include="Img\Add.png" />
+    <Content Include="Img\Like.png" />
+    <Content Include="Img\LikeHover.png" />
+    <Content Include="Img\Reply.png" />
+    <Content Include="Img\ReplyHover.png" />
+    <Content Include="Img\retweet.png" />
+    <Content Include="Img\retweetHover.png" />
+    <Content Include="Img\Search.png" />
+    <Content Include="Img\ThreePoints.png" />
+    <Content Include="Img\ThreePointsHover.png" />
+    <Content Include="Img\TimeLine.png" />
+    <Content Include="Img\User.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -159,6 +172,26 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Styles\Custom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\LikeButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\ReplyButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\RetweetButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\ThreePointsButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -200,9 +233,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
