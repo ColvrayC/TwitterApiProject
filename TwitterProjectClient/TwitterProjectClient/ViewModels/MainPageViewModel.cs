@@ -91,11 +91,16 @@ namespace TwitterProjectClient.ViewModels
             args.Cancel = false;
             await Task.CompletedTask;
         }
+        public void GoToSearchPage() =>
+           NavigationService.Navigate(typeof(Views.SearchPage), Value);
 
         public void GoToTimeLinePage() =>
             NavigationService.Navigate(typeof(Views.TimeLinePage),Value);
 
-       public void GotoDetailsPage() =>
+        public void GoToProfilePage() =>
+           NavigationService.Navigate(typeof(Views.ProfilePage), Value);
+
+        public void GotoDetailsPage() =>
             NavigationService.Navigate(typeof(Views.DetailPage), Value);
 
         public void GotoSettings() =>

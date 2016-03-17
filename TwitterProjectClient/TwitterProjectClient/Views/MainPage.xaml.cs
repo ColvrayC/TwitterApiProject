@@ -4,6 +4,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
+using Template10.Services.NavigationService;
 
 namespace TwitterProjectClient.Views
 {
@@ -14,5 +15,6 @@ namespace TwitterProjectClient.Views
             InitializeComponent();
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
-    }
+    }  
 }
+

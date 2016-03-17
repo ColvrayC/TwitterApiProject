@@ -27,6 +27,18 @@
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Tweeter" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ProfilePage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48" Height="48" Symbol="Home" />
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Profile" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:SearchPage">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Width="48" Height="48" Symbol="Home" />
+                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Recherche" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.PrimaryButtons>
 
         <Controls:HamburgerMenu.SecondaryButtons>
