@@ -8,7 +8,8 @@ namespace TwitterProjectClient.Helpers
 {
     public static class Global
     {
-        public static string CurrentTweetId;
+        public static string CurrentTweetId=null;
         public static bool ReplyMode;
+        public static string IdSearch=null;
     }
 }

@@ -38,7 +38,6 @@ namespace TwitterProjectClient
                 {
                     DisableBackButtonWhenModal = true,
                     Content = new Views.Shell(nav),
-                    ModalContent = new Views.Busy(),
                 };
             }
             await Task.CompletedTask;

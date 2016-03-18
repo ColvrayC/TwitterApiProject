@@ -100,18 +100,6 @@ namespace TwitterProjectClient.ViewModels
         public void GoToProfilePage() =>
            NavigationService.Navigate(typeof(Views.ProfilePage), Value);
 
-        public void GotoDetailsPage() =>
-            NavigationService.Navigate(typeof(Views.DetailPage), Value);
-
-        public void GotoSettings() =>
-            NavigationService.Navigate(typeof(Views.SettingsPage), 0);
-
-        public void GotoPrivacy() =>
-            NavigationService.Navigate(typeof(Views.SettingsPage), 1);
-
-        public void GotoAbout() =>
-            NavigationService.Navigate(typeof(Views.SettingsPage), 2);
-
     }
 }
 

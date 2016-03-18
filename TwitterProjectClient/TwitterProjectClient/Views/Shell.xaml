@@ -17,43 +17,31 @@
             <!--  mainpage button  -->
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:TimeLinePage">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48" Height="48" Symbol="Home" />
+                    <Image Width="38" Height="38" Source="../Img/TimeLine.png" />
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Accueil" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:AddTweetPage">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48" Height="48" Symbol="Home" />
+                    <Image Width="38" Height="38" Source="../Img/Add.png" />
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Tweeter" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:ProfilePage">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48" Height="48" Symbol="Home" />
+                    <Image Width="38" Height="38" Source="../Img/User.png" />
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Profile" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:SearchPage">
                 <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48" Height="48" Symbol="Home" />
+                    <Image Width="38" Height="38" Source="../Img/Search.png" />
                     <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Recherche" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.PrimaryButtons>
 
-        <Controls:HamburgerMenu.SecondaryButtons>
-            <!--  settingspage button  -->
-            <Controls:HamburgerButtonInfo x:Name="SettingsButton" PageParameter="0" PageType="views:SettingsPage">
-                <Controls:HamburgerButtonInfo.NavigationTransitionInfo>
-                    <SuppressNavigationTransitionInfo />
-                </Controls:HamburgerButtonInfo.NavigationTransitionInfo>
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Width="48" Height="48" Symbol="Setting" />
-                    <TextBlock Margin="12,0,0,0" VerticalAlignment="Center" Text="Settings" />
-                </StackPanel>
-            </Controls:HamburgerButtonInfo>
-        </Controls:HamburgerMenu.SecondaryButtons>
-
+       
     </Controls:HamburgerMenu>
 
 </Page>
