@@ -13,20 +13,21 @@
 
         <Canvas x:Name="rootCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Canvas.Background>
-                <ImageBrush ImageSource="ms-appx:///Assets/SplashScreen.png" Stretch="Uniform">
+                <ImageBrush ImageSource="ms-appx:///Assets/Square150x150Logo.scale-400.png" Stretch="Uniform">
                     <ImageBrush.Transform>
                         <TranslateTransform Y="10" />
                     </ImageBrush.Transform>
                 </ImageBrush>
             </Canvas.Background>
             <Viewbox x:Name="splashImage" Width="{Binding ActualWidth, ElementName=MyCanvas, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=MyCanvas, Mode=OneWay}">
-                <Image Source="ms-appx:///Assets/SplashScreen.png" />
+                <Image Source="ms-appx:///Assets/Square150x150Logo.scale-400.png" />
             </Viewbox>
         </Canvas>
 
         <ProgressRing x:Name="progressRing" Width="50"
                       Height="50" HorizontalAlignment="Center"
                       VerticalAlignment="Center"
+                      Background="White"
                       Foreground="{StaticResource ExtendedSplashForeground}"
                       IsActive="True" RenderTransformOrigin="0.5,0.5">
             <ProgressRing.RenderTransform>
